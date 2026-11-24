@@ -4,7 +4,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const contactRoutes = require('./routes/contactRoutes');
-const aiRoutes = require('./routes/aiRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -21,7 +20,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 // API Routes
 app.use('/api/contact', contactRoutes);
-app.use('/api/ai', aiRoutes); // 2. Use the new routes
 app.get("/api/test", (req, res) => {
   res.status(200).send("Backend is running!");
 });
