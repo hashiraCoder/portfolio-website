@@ -73,10 +73,13 @@ const About = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg text-gray-300 text-center md:text-left"
+              className="text-lg text-gray-300 text-center md:text-left space-y-4"
             >
                 <p>
-                    I am a passionate <span className="text-neon-purple font-bold">MERN stack developer</span> and <span className="text-neon-blue font-bold">DevOps enthusiast</span>. With a knack for building robust and secure web applications, I transform complex problems into elegant, user-friendly solutions. My goal is to innovate and create technology that makes a difference.
+                    I’m a <span className="text-neon-purple font-bold">Computer Science and Engineering student at IIIT Bhagalpur</span> with a focus on full-stack systems, application security, and developer tooling. As a Software Engineering Intern at Enyugma, I built authenticated APIs and automated security and deployment workflows for a platform supporting more than 1,200 active challenge submissions.
+                </p>
+                <p className="text-base text-gray-400">
+                    B.Tech in Computer Science and Engineering · Expected May 2028 · CGPA 8.2/10
                 </p>
             </motion.div>
         </div>
