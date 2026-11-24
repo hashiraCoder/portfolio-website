@@ -14,7 +14,6 @@ import SocialLinks from './components/SocialLinks';
 import Achievements from './components/Achievements';
 import WebTerminal from './components/WebTerminal';
 import GitHub from './components/GitHub';
-import AIMatch from './components/AIMatch';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
@@ -90,8 +89,7 @@ function App() {
         <div id="achievements"><Achievements /></div>
         <div id="projects"><Projects /></div>
         <div id="github"><GitHub /></div>
-       {/* <div id="aimatch"><AIMatch /></div>
-        <div id="contact"><Contact /></div> */}
+       {/* <div id="contact"><Contact /></div> */}
       </main>
     </div>
   );
