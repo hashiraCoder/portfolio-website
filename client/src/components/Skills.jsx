@@ -1,71 +1,75 @@
-
-import React from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiTailwindcss, SiJavascript } from 'react-icons/si';
+import { FaCode, FaServer, FaDesktop, FaDatabase, FaTools, FaCloud } from 'react-icons/fa';
 
-
-const skills = [
-  { icon: <FaReact size={60} />, name: 'React' },
-  { icon: <FaNodeJs size={60} />, name: 'Node.js' },
-  { icon: <SiMongodb size={60} />, name: 'MongoDB' },
-  { icon: <SiExpress size={60} />, name: 'Express' },
-  { icon: <SiJavascript size={60} />, name: 'JavaScript' },
-  { icon: <SiTailwindcss size={60} />, name: 'Tailwind CSS' },
-  { icon: <FaHtml5 size={60} />, name: 'HTML5' },
-  { icon: <FaCss3Alt size={60} />, name: 'CSS3' },
-  { icon: <FaGitAlt size={60} />, name: 'Git' },
+const skillGroups = [
+  {
+    icon: <FaCode />,
+    name: 'Languages & Markup',
+    items: ['TypeScript', 'JavaScript (ES6+)', 'C', 'C++', 'HTML5', 'CSS3', 'SQL'],
+  },
+  {
+    icon: <FaServer />,
+    name: 'Backend & APIs',
+    items: ['Node.js', 'Express.js', 'RESTful APIs', 'Asynchronous Worker Queues', 'Webhooks', 'Microservices'],
+  },
+  {
+    icon: <FaDesktop />,
+    name: 'Frontend & UI',
+    items: ['React.js', 'Tailwind CSS', 'Vite', 'State Management', 'Responsive Design', 'DOM Optimization'],
+  },
+  {
+    icon: <FaDatabase />,
+    name: 'Databases & Queues',
+    items: ['PostgreSQL', 'MongoDB', 'Redis (In-Memory Caching & Queues)', 'SQLite', 'BullMQ'],
+  },
+  {
+    icon: <FaTools />,
+    name: 'DevOps, Testing & Tools',
+    items: ['Docker', 'Git', 'GitHub Actions', 'Postman', 'Linux/Bash', 'Burp Suite', 'Vitest'],
+  },
+  {
+    icon: <FaCloud />,
+    name: 'Cloud Platforms',
+    items: ['AWS (EC2)', 'Vercel', 'Netlify', 'Railway'],
+  },
 ];
 
-const Skills = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-  
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
-  };
-
-  return (
-    <section className="py-20 px-4 md:px-16 lg:px-32">
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
+const Skills = () => (
+  <section className="py-20 px-4 md:px-16 lg:px-32">
+    <motion.h2
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="text-4xl font-bold text-center mb-12"
+    >
+      My Tech <span className="text-neon-purple">Stack</span>
+    </motion.h2>
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+      {skillGroups.map((group, index) => (
+        <motion.div
+          key={group.name}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl font-bold text-center mb-12"
+          transition={{ duration: 0.4, delay: index * 0.08 }}
+          className="p-6 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm hover:border-neon-blue transition-colors"
         >
-            My Tech <span className="text-neon-purple">Stack</span>
-        </motion.h2>
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8"
-        >
-            {skills.map((skill, index) => (
-                <motion.div 
-                  key={index}
-                  variants={itemVariants}
-                  className="flex flex-col items-center p-6 bg-white/5 rounded-lg border border-white/10 backdrop-blur-sm group hover:border-neon-blue transition-all duration-300"
-                >
-                    <div className="text-neon-blue group-hover:text-neon-purple transition-colors duration-300">
-                      {skill.icon}
-                    </div>
-                    <p className="mt-4 font-semibold">{skill.name}</p>
-                </motion.div>
+          <div className="flex items-center gap-3 mb-4 text-neon-blue">
+            <span className="text-2xl" aria-hidden="true">{group.icon}</span>
+            <h3 className="text-lg font-bold text-white">{group.name}</h3>
+          </div>
+          <ul className="flex flex-wrap gap-2">
+            {group.items.map((item) => (
+              <li key={item} className="bg-neon-blue/10 text-gray-200 text-sm px-3 py-1.5 rounded-full border border-white/10">
+                {item}
+              </li>
             ))}
+          </ul>
         </motion.div>
-    </section>
-  );
-};
+      ))}
+    </div>
+  </section>
+);
 
 export default Skills;
