@@ -62,7 +62,7 @@ const Hero = () => {
 
         {/* --- THIS IS THE UPDATED H1 TAG --- */}
         <motion.h1
-          className="text-6xl md:text-8xl font-bold my-4 bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-white overflow-hidden"
+          className="text-5xl sm:text-7xl md:text-8xl font-bold my-4 bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-white overflow-hidden"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -79,21 +79,20 @@ const Hero = () => {
         </motion.h1>
         {/* --- END OF UPDATE --- */}
         
-        <div className="text-xl md:text-3xl text-gray-300 h-10">
+        <div className="text-lg sm:text-xl md:text-3xl text-gray-300 min-h-10 px-2">
           {showHeroEnhancements ? (
             <TypeAnimation
               sequence={[
-                'Full Stack Web Developer', 2000,
-                'MERN Stack Specialist', 2000,
-                'Node.js Expert', 2000,
-                'Cyber Enthusiast', 2000,
+                'Full-Stack Software Engineer', 2000,
+                'DevSecOps & Application Security', 2000,
+                'Backend Systems & APIs', 2000,
               ]}
               wrapper="span"
               speed={50}
               repeat={Infinity}
             />
           ) : (
-            <span>Full Stack Web Developer</span>
+            <span>Full-Stack Software Engineer</span>
           )}
         </div>
         <motion.div
