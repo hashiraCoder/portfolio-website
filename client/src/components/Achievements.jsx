@@ -44,6 +44,19 @@ const achievementsData = [
     date: 'March 2026',
     icon: <FaAward />,
     image: '/images/certificates/codeFest-iitbhu.jpeg'
+  },
+  {
+    title: 'GDG on Campus Solution Challenge',
+    issuer: 'Google Developer Groups On Campus · Hack2skill',
+    date: '2025',
+    icon: <FaAward />,
+    image: '/images/certificates/gdg-solution-challenge.jpeg'
+  },
+  {
+    title: 'SkillsBuild Completion Certificate',
+    issuer: 'IBM SkillsBuild',
+    icon: <FaAward />,
+    image: '/images/certificates/skillsbuild-completion-certificate.pdf'
   }
 ];
 
@@ -94,14 +107,22 @@ const Achievements = () => {
             onClick={() => setSelectedCert(null)}
             className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
           >
-            <motion.img
-              initial={{ scale: 0.5 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.5 }}
-              src={selectedCert}
-              alt="Certificate"
-              className="max-w-full max-h-full rounded-lg"
-            />
+            {selectedCert.toLowerCase().endsWith('.pdf') ? (
+              <iframe
+                src={selectedCert}
+                title="SkillsBuild completion certificate"
+                className="w-full h-full max-w-5xl rounded-lg bg-white"
+              />
+            ) : (
+              <motion.img
+                initial={{ scale: 0.5 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.5 }}
+                src={selectedCert}
+                alt="Certificate"
+                className="max-w-full max-h-full rounded-lg"
+              />
+            )}
           </motion.div>
         )}
       </AnimatePresence>
