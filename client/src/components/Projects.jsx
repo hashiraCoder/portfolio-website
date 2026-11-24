@@ -13,7 +13,7 @@ const Projects = () => {
         >
           Featured <span className="text-neon-blue">Projects</span>
         </motion.h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
             {projectData.map((project, index) => {
               const hasLiveDemo = Boolean(project.live && project.live !== '#');
 
@@ -29,8 +29,8 @@ const Projects = () => {
                     {/* <img src={project.img} alt={project.title} className="rounded-md mb-4 group-hover:scale-105 transition-transform duration-300"/> */}
                     <h3 className="text-2xl font-bold text-neon-purple mb-2">{project.title}</h3>
                     <p className="text-gray-400 mb-4">{project.desc}</p>
-                    <div className="flex gap-2 mb-4">
-                        {project.stack.map(tech => <span key={tech} className="bg-neon-blue/20 text-neon-blue text-xs font-bold px-2 py-1 rounded-full">{tech}</span>)}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        {project.stack.map(tech => <span key={tech} className="bg-neon-blue/20 text-neon-blue text-sm font-bold px-2 py-1 rounded-full">{tech}</span>)}
                     </div>
                     <div className="flex gap-4">
                       {hasLiveDemo ? (
